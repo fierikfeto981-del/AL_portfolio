@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfianus Fierik Feto - iPortfolio Style</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css.style.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            background-color: #2473b8;
+            color: #161718;
+            min-height: 100vh;
+        }
+        header {
+            width: 300px;
+            background:blueviolets;
+            color: #16635f;
+            padding: 30px 20px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 8px solid #2c2f3f;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-section h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-section p {
+            font-size: 13px;
+            color: #1a93a0;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav ul li {
+            margin-bottom: 15px;
+        }
+        nav ul li a {
+            display: block;
+            padding: 12px 15px;
+            color: #1f0549;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #2d0579;
+            color: #8790c2;
+        }
+        main {
+            margin-left: 300px;
+            padding: 40px;
+            width: calc(100% - 300px);
+        }
+        .page-section {
+            display: blue;
+            background: #040213;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .page-section:target, #home {
+            display: block;
+        }
+
+        :target ~ #home {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #080808;
+            margin-bottom: 10px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #149ddd;
+            bottom: 0;
+            left: 0;
+        }
+
+        .section-desc {
+            margin-bottom: 25px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        ul.custom-list {
+            list-style: none;
+        }
+
+        ul.custom-list li {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        ul.custom-list li strong {
+            color: #173b6c;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table.data-table th, table.data-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        table.data-table th {
+            background-color: #173b6c;
+            color: #ffffff;
+        }
+
+        table.data-table tr:nth-child(even) {
+            background-color: #161161;
+        }
+
+        .portfolio-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .portfolio-card-body {
+            padding: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color:white#173b6c;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #149ddd;
+        }
+
+        .btn-submit {
+            background-color: #149ddd;
+            color: #ffffff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0b7dda;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888888;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            header {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-section">
+            <img src="assets/setprofile.jpeg" alt="profile.jpeg" class="profile-img">
+            <h1>Alfianus Fieirk Feto</h1>
+            <p>Web Developer & Designer Beginner</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">     About      </a></li>
+                <li><a href="#resume">      Portofolio      </a></li>
+                <li><a href="#contact">     Kontak Kami     </a></li>
+            </ul>
+        </nav>
+        
+        <footer style="margin-top: 50px; font-size: 13px; color: #a8a9b4;">
+            <p>&copy; 2026 Portfolio Alfian.</p>
+        </footer>
+    </header>
+
+    <main>
+
+        <section id="home" class="page-section">
+            <h2 class="section-title">About</h2>
+            <p class="section-desc">
+                Halo! Saya seorang Mahasiswa Teknik Inofrmatika yang bersemangat dalam pengembangan web. Saya belajar membangun web yang bersih, responsif, dan mudah digunakan. Saya menyukai tantangan teknologi baru.
+            </p>
+
+            <div class="grid-2">
+                <div>
+
+                    <h3 style="color: #173b6c; margin-bottom: 15px;">Informasi Pribadi</h3>
+
+                    <ul class="custom-list">
+                        <li><strong>Nama Lengkap:</strong> Alfianus Fierik feto</li>
+                        <li><strong>Tanggal Lahir:</strong> 01 Agustus 2006</li>
+                        <li><strong>Telepon:</strong> +62 81237963058</li>
+                        <li><strong>Kota:</strong> Jakarta, Indonesia</li>
+                        <li><strong>Status :</strong> Mahasiswa & Available for Freelance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #173b6c; margin-bottom: 15px;">Universitas Paramadina</h3>
+                    <ul class="custom-list">
+                        <li><strong>Angkatan:</strong> 2025</li>
+                        <li><strong>Prodi:</strong> Teknik Informatika</li>
+                        <li><strong>Hobi:</strong> Gaming, Musik,Mencari Tahu Hal Baru</li>
+                        <li><strong>Bahasa:</strong> Indonesia (Native), Inggris (learn)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #173b6c; margin-top: 35px; margin-bottom: 15px;">Tabel Riwayat Pendidikan</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Jenjang Pendidikan</th>
+                        <th>Nama Sekolah/Institusi</th>
+                        <th>Tahun Lulus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sekolah Dasar</td>
+                        <td>SDI Raterunu</td>
+                        <td>2012-2018</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sekolah Menengah Pertama</td>
+                        <td>SMPSK Kotagoa</td>
+                        <td>2018-2021</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sekolah Menengah Atas</td>
+                        <td>SMAN1 Wolowae</td>
+                        <td>2021-2024</td>
+                    </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>Universitas</td>
+                        <td>Universitas Paramadina</td>
+                        <td>2025 - Sekarang</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="resume" class="page-section">
+            <h2 class="section-title">Portofolio</h2>
+            <p class="section-desc">Pengelaman Kerja & Project yang pernah saya kerjakan.</p>
+
+            <article style="margin-bottom: 30px;">
+                <h3 style="color: #173b6c; margin-bottom: 10px;">Pengalaman Kerja</h3>
+                <ul class="custom-list">
+                    <li>
+                        <strong>Belum Pernah Bekerja</strong> (2026 - Sekarang)
+                        <p style="font-size: 13px; color: #666;">Mencari Lowongan kerja dibidang mengembangkan dan memelihara komponen UI untuk proses pembelajaran</p>
+                    </li>
+                </ul>
+            </article>
+
+            <h3 style="color: #173b6c; margin-bottom: 15px;">Project Terbaru</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="assets/project1.png" alt="Project 1">
+                        <div class="portfolio-card-body">
+                            <h4>Snake Game</h4>
+                            <p>Membuat game Snake sederhana menggunakan c++.</p>
+                            <a href="Snake_Game" class="btn btn-primary">Lihat Project &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        
+                        <div class="portfolio-card-body">
+                            <h4>Game Deliverence</h4>
+                            <p>Membuat game sederhana menggunakan Python.</p>
+                            <a href="Deliverence" class="btn btn-primary">Lihat Project &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-card">
+                        <img src="assets/project3.png" alt="Project 3">
+                        <div class="portfolio-card-body">
+                            <h4>Billiard</h4>
+                            <p>Membuat game Billiard sederhana menggunakan C++.</p>
+                            <a href="Billiard" class="btn btn-primary">Lihat Project &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="page-section">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <p class="section-desc">Apakah Anda memiliki pertanyaan atau ingin bekerja sama? Silakan kirimkan pesan melalui formulir di bawah ini.</p>
+
+            <form action="#" method="post">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama Anda..." required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="nama@email.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subjek">Subjek Pesan</label>
+                    <input type="text" id="subjek" name="subjek" class="form-control" placeholder="Subjek atau topik pesan..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan">Pesan Anda</label>
+                    <textarea id="pesan" name="pesan" rows="5" class="form-control" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+        </section>
+
+    </main>
+
+</body>
+</html>
